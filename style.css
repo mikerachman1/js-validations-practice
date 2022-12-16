@@ -5,7 +5,23 @@ form {
   padding: 1rem;
 }
 
-.submit {
+input:invalid,
+select:invalid {
+  border: 3px solid red;
+}
+
+input:valid,
+select:valid {
+  border: 3px solid green;
+}
+
+input:focus:invalid,
+input:focus:valid {
+  border: none;
+}
+
+#submit {
   max-width: 200px;
   padding: .5rem 0;
+  border: 1px solid black;
 }
