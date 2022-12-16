@@ -25,3 +25,7 @@ input:focus:valid {
   padding: .5rem 0;
   border: 1px solid black;
 }
+
+.message {
+  font-size: 4rem;
+}

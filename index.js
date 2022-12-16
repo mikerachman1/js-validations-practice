@@ -3,6 +3,8 @@ const country = document.querySelector('#country');
 const zipcode = document.querySelector('#zipcode');
 const password = document.querySelector('#password');
 const passwordConfirm = document.querySelector('#confirm-password');
+const form = document.querySelector('#form');
+const message = document.querySelector('.message');
 
 email.addEventListener("change", (event) => {
   if (email.validity.typeMismatch || email.validity.valueMissing) {
@@ -13,8 +15,6 @@ email.addEventListener("change", (event) => {
   }
 })
 
-
-
 country.addEventListener("focusout", (event) => {
   if (country.validity.valueMissing) {
     country.setCustomValidity("Selecting a country is required.");
@@ -23,8 +23,6 @@ country.addEventListener("focusout", (event) => {
     country.setCustomValidity("");
   }
 })
-
-
 
 zipcode.addEventListener("change", (event) => {
   if (zipcode.validity.patternMismatch) {
@@ -35,8 +33,6 @@ zipcode.addEventListener("change", (event) => {
   }
 })
 
-
-
 password.addEventListener("change", (event) => {
   if (password.validity.valueMissing || password.validity.tooShort) {
     password.setCustomValidity("Password needs to be at least 6 characters long!")
@@ -45,8 +41,6 @@ password.addEventListener("change", (event) => {
     password.setCustomValidity("");
   }
 })
-
-
 
 passwordConfirm.addEventListener("change", (event) => {
   if (passwordConfirm.validity.valueMissing || passwordConfirm.validity.tooShort) {
@@ -57,5 +51,14 @@ passwordConfirm.addEventListener("change", (event) => {
     passwordConfirm.reportValidity();
   } else {
     passwordConfirm.setCustomValidity("");
+  }
+})
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (form.checkValidity()) {
+    message.innerHTML = 'Congrats! You properly filled out the form!'
+  } else {
+    message.innerHTML = 'Check your inputs and try again!!'
   }
 })
